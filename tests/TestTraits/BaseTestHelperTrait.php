@@ -14,6 +14,32 @@ trait BaseTestHelperTrait {
         return null;
     }
 
+    public function assertValidationErrorMessages($expected_results) {
+        $response = $this->getSessionErrorMessagesInArray();
+        $this->assertEquals($expected_results, $response);
+    }
+
+    protected function sendRequestByRoute($method, $uri, $parameters = [], $status_code = 200, $files = [], $routeParameters = [], $headers = []) {
+
+        $response = $this->call(
+            $method,
+            $uri,
+            $parameters,
+            [],
+            $files
+            );
+
+        $errors = $this->getSessionErrorMessagesInArray();
+
+        if ($errors) {
+            return $errors;
+        }
+
+        if ($response->headers->get('Content-Type') === "application/json") {
+            return json_decode($response->content(), true);
+        }
+    }
+
     protected function generateTestData($test_data = []) {
         return array_merge($this->default_test_data, $test_data);
     }
