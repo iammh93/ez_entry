@@ -5,6 +5,7 @@ return [
     'button' => [
         'next' => 'Next',
         'back' => 'Back',
-        'start' => 'Start'
+        'start' => 'Start',
+        'check_in' => 'Check In'
     ]
 ];

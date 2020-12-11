@@ -25,8 +25,8 @@ return [
             ]
         ],
         'step_3' => [
-            'info_message' => 'Please click the button below to checkin',
-            'success' => 'Your are good to go',
+            'info_message' => 'Please click the button to check in',
+            'success' => ':full_name, Your are good to go. Have a nice day',
             'warning' => 'Oh no, :full_name seem like you are not allowed to enter the building.',
             'errors' => [
                 'second_step' => 'Please complete step 2 before proceed',

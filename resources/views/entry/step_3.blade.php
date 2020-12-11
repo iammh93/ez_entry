@@ -10,7 +10,7 @@
           @if($step["temperature"] >= 37.5)
             <h2>{{ __("dashboard.entry_form.step_3.warning", ["full_name" => $step["full_name"]]) }}</h2>
           @else
-            <h2>{{ __("dashboard.entry_form.step_3.success") }}</h2>
+            <h2>{{ __("dashboard.entry_form.step_3.success", ["full_name" => $step["full_name"]]) }}</h2>
           @endif()
         </div>
       </div>
@@ -24,7 +24,9 @@
               </div>
               <form action="{{ route('entry.entry-form.3.store')}} " method="POST">
                 @csrf
-                <button type="submit" class="btn btn-primary float-right">Check In</button>
+                <button type="submit" class="btn btn-primary float-right">
+                    {{ __("general.button.check_in") }}
+                </button>
               </form>
             </div>
         </div>

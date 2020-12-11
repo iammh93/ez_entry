@@ -38,6 +38,14 @@ trait BaseTestHelperTrait {
         if ($response->headers->get('Content-Type') === "application/json") {
             return json_decode($response->content(), true);
         }
+
+        if (!$response->isRedirection()) {
+            $this->assertEquals($status_code, $response->getStatusCode(), $response->getContent());
+        }
+
+        if ($response->isRedirection()){
+            return $response;
+        }
     }
 
     protected function generateTestData($test_data = []) {

@@ -2,9 +2,10 @@
 
 namespace App\Http\Entry\Controllers;
 
-use DB, Lang;
+use Exception, DB, Lang;
 use App\Domain\Steps\Steps;
 use App\Http\Controllers\Controller;
+use App\Domain\Users\Models\Entry;
 
 class EntryFormControllerStep2 extends Controller {
     public function index(Steps $steps) {
@@ -21,11 +22,25 @@ class EntryFormControllerStep2 extends Controller {
 
     public function store(Steps $steps) {
         //assuming temperature was passed by Stepper Control
-        //$temperature = mt_rand(57*10, 58*10) / 10;
-        $temperature = 38;
+        $temperature = mt_rand(37*10, 38*10) / 10;
         $steps->step("entry.entry-form", 2)
             ->store(["temperature" => $temperature])
             ->complete();
-        return redirect()->route("entry.entry-form.3.index");
+
+        $data = $steps->all();
+        $data["checkin_date"] = $data["checkin_date"]->setTimezone('UTC');
+
+        DB::beginTransaction();
+        try {
+            $entry = new Entry();
+            $entry->fill($data);
+            $entry->save();
+
+            DB::commit();
+            return redirect()->route("entry.entry-form.3.index");
+        } catch (Exception $e) {
+            DB::rollback();
+            dd($e->getMessage());
+        }
     }
 }

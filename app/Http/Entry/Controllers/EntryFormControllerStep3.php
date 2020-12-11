@@ -2,7 +2,7 @@
 
 namespace App\Http\Entry\Controllers;
 
-use DB, Lang;
+use Exception, DB, Lang;
 use App\Domain\Steps\Steps;
 use App\Http\Controllers\Controller;
 

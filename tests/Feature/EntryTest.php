@@ -4,7 +4,9 @@ namespace Tests\Feature;
 
 use Lang;
 use Tests\TestCase;
+use Carbon\Carbon;
 use App\Domain\Users\Models\User;
+use App\Domain\Users\Models\Entry;
 
 class EntryTest extends TestCase {
     public function testEntryFormCannotLeaveBlank() {
@@ -68,5 +70,25 @@ class EntryTest extends TestCase {
 
         $this->sendRequestByRoute("POST", route("entry.entry-form.1.store"), $input_data);
         $this->assertValidationErrorMessages($expected_results);
+    }
+
+    public function testSaveEntryFormSuccess() {
+        $test_data = [
+            "full_name" => "Testing User",
+            "phone_number" => 12345678
+        ];
+
+        $response = $this->sendRequestByRoute("POST", route("entry.entry-form.1.store"), $test_data);
+        $response->assertRedirect(route("entry.entry-form.2.index"));
+
+        //Admin Account
+        $response = $this->sendRequestByRoute("POST", route("entry.entry-form.2.store"));
+        $response->assertRedirect(route("entry.entry-form.3.index"));
+
+        $this->assertEquals(Entry::count(), 1);
+
+        $entry = Entry::first();
+        $this->assertEquals($test_data["full_name"], $entry->full_name);
+        $this->assertEquals($test_data["phone_number"], $entry->phone_number);
     }
 }
