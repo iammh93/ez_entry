@@ -26,6 +26,15 @@
                                 </div>
                             @endif
                         </div>
+                        <div class="form-group">
+                            <label>{{ __('dashboard.entry_form.step_1.phone_number.label')}}<span class="require-field-symbol"> *</span></label>
+                            <input type="text" name="phone_number" class="form-control{{ $errors->has('phone_number') ? ' is-invalid' : '' }}" value="{{ old('phone_number') ?: $step->phone_number }}" placeholder="{{ __('dashboard.entry_form.step_1.phone_number.tooltip')}}">
+                            @if ($errors->has('phone_number'))
+                                <div class="invalid-feedback">
+                                    <strong>{{ $errors->first('phone_number') }}</strong>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary float-right">{{ __('general.button.next') }}</button>
                </form>

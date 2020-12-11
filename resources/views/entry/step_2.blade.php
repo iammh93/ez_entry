@@ -8,7 +8,8 @@
  <div class="sidenav">
         <div class="login-main-text">
             <h2>{{ __('dashboard.entry_form.step_2.header', ["full_name" => $step["full_name"]]) }}</h2>
-            <p>{{ __('dashboard.entry_form.step_2.checkin_date') }} {{ $step["checkin_date"]->toDayDateTimeString() }}</p>
+            <h2>{{ __('dashboard.entry_form.step_2.checkin_date') }}</h2>
+            <h2>{{ $step["checkin_date"]->toDayDateTimeString() }}</h2>
         </div>
       </div>
       <div class="main">
@@ -19,7 +20,7 @@
                 @csrf
                     <div class="form-group">
                         <div class="form-group">
-                            <h1>{{ __('dashboard.entry_form.step_2.check_temperature') }}</h1>
+                            <h2>{{ __('dashboard.entry_form.step_2.check_temperature') }}</h2>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary float-right">{{ __('general.button.start') }}</button>

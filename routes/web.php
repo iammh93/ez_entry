@@ -19,7 +19,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['namespace' => 'App\Http\Dashboard\Controllers'], function() {
     Route::get('/', 'DashboardController@index')->name('dashboard.main.get');
-    // Route::post('submitEntryForm', 'DashboardController@postSubmitEntryForm')->name('dashboard.entry-form.post');
 });
 
 Route::group(['namespace' => 'App\Http\Entry\Controllers'], function() {

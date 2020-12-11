@@ -11,6 +11,10 @@ return [
                 'label' => 'Full Name (as NRIC/ Work Pass)',
                 'tooltip' => 'Full Name (as NRIC/ Work Pass)'
             ],
+            'phone_number' => [
+                'label' => 'Contact Number',
+                'tooltip' => 'E.g: 72891827'
+            ],
         ],
         'step_2' => [
             'header' => 'Hello :full_name',

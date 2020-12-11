@@ -19,6 +19,7 @@ class EntryFormControllerStep1 extends Controller {
     public function store(Steps $steps, EntryFormStep1Requests $requests) {
         $data = [
             "full_name" => $requests->get("full_name"),
+            "phone_number" => $requests->get("phone_number"),
             "checkin_date" => Carbon::now()->setTimezone("Asia/Singapore")
         ];
 
