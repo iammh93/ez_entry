@@ -24,6 +24,6 @@ class Entry extends Model {
     protected $appends = [];
 
     protected $casts = [
-        'checkin_date' => 'date',
+        'checkin_date' => 'datetime',
     ];
 }
