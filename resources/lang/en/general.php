@@ -7,5 +7,6 @@ return [
         'back' => 'Back',
         'start' => 'Start',
         'check_in' => 'Check In'
-    ]
+    ],
+    'record_not_found' => 'Records not found'
 ];

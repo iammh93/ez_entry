@@ -51,6 +51,11 @@
                                     <td class="text-left">{{ $entry->checkin_date->setTimezone("Asia/Singapore")->toDayDateTimeString() }}</td>
                                 </tr>
                                 @endforeach()
+                                @if($valid_entries->count() === 0)
+                                    <tr>
+                                        <td>{{ __("general.record_not_found") }}</td>
+                                    </tr>
+                                @endif()
                             </tbody>
                         </table>
                     </div>
@@ -86,6 +91,11 @@
                                     <td class="text-left">{{ $entry->checkin_date->setTimezone("Asia/Singapore")->toDayDateTimeString() }}</td>
                                 </tr>
                                 @endforeach()
+                                @if($invalid_entries->count() === 0)
+                                    <tr>
+                                        <td>{{ __("general.record_not_found") }}</td>
+                                    </tr>
+                                @endif()
                             </tbody>
                         </table>
                     </div>
