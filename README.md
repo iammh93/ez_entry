@@ -21,9 +21,6 @@ RSA key stored at (/Users/UserName/.ssh/id_rsa)
         git checkout release //latest stable version
         init.bat  // Windows...
 
-For more details guide (optional)
-https://laravel.com/docs/7.x/homestead
-
 3. Create folder name "workspace" and save it as "C:\Users\UserName\C:\Users\UserName\workspace"
 
 
@@ -55,12 +52,12 @@ After homestead started, Go ahead and run:
 
 ```
 $ cd code //cd into your laravel directory
-$ git clone git@github.com:iammh93/ez_entry.git
+$ git clone git@github.com:iammh93/ez_entry.git ezentry
 $ cd ezentry
 $ git checkout master
 $ cp .env.example .env
 $ composer install
-$ php artisan key:generate #if key does not generated after composer install
+$ php artisan key:generate
 ```
 
 ## In Host window.
@@ -79,7 +76,8 @@ exit
 php artisan migrate                                           #migrate core database
 php artisan db:seed                                           #seed core database and admin account
 ```
-In host, open browser and enter "www.ezentry.test", Website is online now
+
+In host, open browser and enter "http://ezentry.test/", Website is online now
 
 ## Unit-test ##
 1.  Setup Test Environment, login to mysql to create test databases
