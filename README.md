@@ -11,7 +11,6 @@ RSA key stored at (/Users/UserName/.ssh/id_rsa)
 * Git - https://git-scm.com/downloads  
 * virtualbox - https://www.virtualbox.org/wiki/Downloads  
 * vagrant - http://www.vagrantup.com/downloads.html  
-* vagrant increase performance: https://stackoverflow.com/questions/50614748/laravel-homestead-vagrant-virtualbox-is-slow-on-windows  
 * Node - https://nodejs.org/en/  
 
 2. Open window git bash (with admin permission) and type
@@ -24,6 +23,9 @@ RSA key stored at (/Users/UserName/.ssh/id_rsa)
 
 For more details guide (optional)
 https://laravel.com/docs/7.x/homestead
+
+3. Create folder name "workspace" and save it as "C:\Users\UserName\C:\Users\UserName\workspace"
+
 
 You need to update your homestead.yaml file before start virtual box.
 File was located at "C:\Users\{PC_NAME}\Homestead.yaml"
@@ -58,8 +60,13 @@ $ cd ezentry
 $ git checkout master
 $ cp .env.example .env
 $ composer install
-$ npm install && npm run dev
 $ php artisan key:generate #if key does not generated after composer install
+```
+
+## In Host window.
+```
+$ cd C:\Users\UserName\workspace\ezentry
+$ npm install && npm run dev
 ```
 
 ## Database Migration
