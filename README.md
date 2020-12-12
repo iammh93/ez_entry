@@ -27,10 +27,10 @@ https://laravel.com/docs/7.x/homestead
 3. Create folder name "workspace" and save it as "C:\Users\UserName\C:\Users\UserName\workspace"
 
 
-You need to update your homestead.yaml file before start virtual box.
-File was located at "C:\Users\{PC_NAME}\Homestead.yaml"
-Copy some configuration to Homestead. (Check file provided in email)
-Remember to add guest IP into C:\Windows\System32\drivers\etc\hosts as below
+You need to update your homestead.yaml file before start virtual box.  
+File was located at "C:\Users\{PC_NAME}\Homestead.yaml"  
+Copy some configuration to Homestead. (Check file provided in email)  
+Remember to add guest IP into C:\Windows\System32\drivers\etc\hosts as below  
 
 ```
 192.168.10.10  ezentry.test
@@ -69,6 +69,7 @@ $ cd C:\Users\UserName\workspace\ezentry
 $ npm install && npm run dev
 ```
 
+## In guest window.
 ## Database Migration
 
 ```
