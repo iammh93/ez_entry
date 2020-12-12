@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['auth:sanctum'], 'namespace' => 'App\Http\Dashboard\Controllers'], function() {
-    Route::get('/', 'DashboardController@index')->name('dashboard.main.get');
     Route::get('/dashboard', 'DashboardController@getEntryList')->name('dashboard.list.get');
+});
+
+Route::group(['namespace' => 'App\Http\Dashboard\Controllers'], function() {
+    Route::get('/', 'DashboardController@index')->name('dashboard.main.get');
 });
 
 Route::group(['namespace' => 'App\Http\Entry\Controllers'], function() {

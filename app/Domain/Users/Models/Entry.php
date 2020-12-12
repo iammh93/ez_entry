@@ -26,4 +26,8 @@ class Entry extends Model {
     protected $casts = [
         'checkin_date' => 'datetime',
     ];
+
+    public function scopeOrderByCustomAttribute($query, $attribute, $order_by) {
+        return $query->orderBy($attribute, $order_by);
+    }
 }

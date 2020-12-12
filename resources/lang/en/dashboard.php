@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'header' => [
+        'dashboard' => 'Dashboard',
+        'entry' => 'Entry Page',
+        'entry_list' => 'Entry List',
+    ],
     'side_bar' => [
         'header' => 'Hello Visitor',
         'sub_header' => 'Please enter your name before enter the building.'
@@ -14,6 +19,14 @@ return [
             'phone_number' => [
                 'label' => 'Contact Number',
                 'tooltip' => 'E.g: 72891827'
+            ],
+            'temperature' => [
+                'label' => 'Temperature',
+                'tooltip' => ''
+            ],
+            'checkin_time' => [
+                'label' => 'Check In Time',
+                'tooltip' => ''
             ],
         ],
         'step_2' => [
